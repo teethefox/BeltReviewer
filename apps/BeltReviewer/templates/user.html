@@ -1,0 +1,65 @@
+Skip to content
+This repository
+Search
+Pull requests
+Issues
+Marketplace
+Explore
+ @teethefox
+ Sign out
+ Watch 0
+  Star 0  Fork 0 jradtkey/jared_belt_reviewer
+ Code  Issues 0  Pull requests 0  Projects 0  Wiki Insights 
+Branch: master Find file Copy pathjared_belt_reviewer/apps/beltReviewer/templates/beltReviewer/users.html
+7631908  4 days ago
+@jradtkey jradtkey beltreviewer deploy
+1 contributor
+RawBlameHistory     
+53 lines (51 sloc)  1.4 KB
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>User</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style media="screen">
+      #nav{
+        background-color: #286090;
+        height: 50px;
+      }
+      .nav_links a {
+        color: white;
+        text-decoration: underline;
+        margin-left: 20px;
+      }
+      .nav_links {
+        padding-top: 20px;
+        float: right;
+        margin-right: 40px;
+      }
+      #user {
+        margin-left: 5%;
+      }
+      #user a{
+        margin-left: 3%;
+      }
+    </style>
+  </head>
+  <body>    
+        <a href="/home">Home</a>
+        <a href="/add/{{books.id}}">Add Book and Review</a>
+        <a href="/logout">Logout</a>
+      </div>
+      
+        <h2>User Alias: {{users.alias}}</h2>
+        <h3>Name: {{users.name}}</h3>
+        <h3>Email: {{users.email}}</h3>
+        <h4>Total Reviews: {{count}}</h4><br><br>
+        <h4>Posted Reviews on the following books:</h4>
+        {% for review in reviews %}
+        <a href="/book/{{review.book.id}}">{{review.book.title}}</a><br>
+        {% endfor %}
+      </div>
+    </div>
+  </body>
+</html>

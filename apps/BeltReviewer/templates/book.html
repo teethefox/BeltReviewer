@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>{% for review in reviews %}
+    Book Title:{{book.title}}
+    <div id= "reviews">
+        Reviews:
+        
+        
+            <p class="review">Rating: {{ review.rating }} stars
+
+            <br>
+            <a href="/user/{{ user.id }}"></a>{{ user.firstname }}</a> says: {{ review.review }}</p>
+            <br>
+        {% endfor %}
+        <hr>
+    </div>
+ 
+       
+            <form action="/book/{{books.id}}" method="post">
+                {%csrf_token%}
+            
+                Review:
+                <textarea name="review" id="" cols="30" rows="10"></textarea>
+                Rating:
+                <select name="rating">
+                    <option value="1">One Star</option>
+                    <option value="2">Two Stars</option>
+                    <option value="3">Three Stars</option>
+                    <option value="4">Four Stars</option>
+                    <option value="5">Five Stars</option>
+                    
+                </select>
+                <input type="hidden" name="{{author}}">
+                <input type="submit" name="submit">
+            </form>
+    </div>
+    <a href="/success">Go back</a>
+    <a href="/logout">Log Out</a>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    Success! Welcome {{user.firstname}}
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+        <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+    
+<a href="/add/{{book.id}}">Add Book Review</a>
+<h2>Recent Reviews</h2>
+<div>Title:
+<a href="/book/{{ book1.id }}">{{book1.title}}</a>
+Rating: {{review1.rating}} stars
+<p>Review:{{review1.review}}</p>
+</div>
+<hr>
+<div class="row">Title:
+<a href="/book/{{ book2.id }}">{{book2.title}}</a>
+Rating: {{review2.rating}} stars
+<p>Review:{{review2.review}}</p>
+</div>
+<hr>
+<div class="row">Title:
+<a href="/book/{{ book3.id }}">{{book3.title}}</a>
+Rating: {{review3.rating}} stars
+<p>Review:{{review3.review}}</p>
+</div>
+<hr>
+<div><h2>Other books with reviews:</h2>
+
+</div>
+<div>
+    
+    <div id="reviews">
+            {% for book in books %}
+            <a href="/reviews/{{ books.id }}">{{books.title}}</a><br>
+          {% endfor %}
+
+
+    </div>
+</div>
+<a href="/logout">Log Out</a>
+   
+</body>
+</html>
